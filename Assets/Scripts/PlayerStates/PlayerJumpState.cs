@@ -9,9 +9,12 @@ public class PlayerJumpState : PlayerStates
     [SerializeField] private float jumpHeight = 5f;
     [SerializeField] private int maxJumps = 1;
 
-    public int _jumpAnimatorParameter = Animator.StringToHash("Jump");
+    private int _jumpAnimatorParameter = Animator.StringToHash("Jump");
     private int _animatorDoubleJumpParameter = Animator.StringToHash("Double Jump");
     private int _animatorFallParameter = Animator.StringToHash("Fall");
+
+    private Vector2 _currentColliderSize;
+    private Vector2 _jumpingColliderSize;
 
 
     public int JumpsLeft { get; set; }
@@ -20,6 +23,8 @@ public class PlayerJumpState : PlayerStates
     {
         base.InitState();
         JumpsLeft = maxJumps;
+        _currentColliderSize = _playerController.GetComponent<BoxCollider2D>().size;
+        
     }
 
     public override void ExecuteState()
@@ -28,6 +33,7 @@ public class PlayerJumpState : PlayerStates
         {
             JumpsLeft = maxJumps;
             _playerController.Conditions.isJumping = false;
+            _playerController.GetComponent<BoxCollider2D>().size = _currentColliderSize;
         }
     }
 
@@ -54,6 +60,12 @@ public class PlayerJumpState : PlayerStates
         float jumpForce = Mathf.Sqrt(jumpHeight * 2f * Mathf.Abs(_playerController.Gravity));
         _playerController.SetVerticalForce(jumpForce);
         _playerController.Conditions.isJumping = true;
+        _jumpingColliderSize = _currentColliderSize;
+        //_currentColliderSize = new Vector2(1.26f, 1.06f);
+        _playerController.GetComponent<BoxCollider2D>().size = new Vector2(1.26f, 1.06f);
+        Debug.Log("X collider size: " + _currentColliderSize.x + "Y collider size: " + _currentColliderSize.y);
+
+
     }
 
     private bool CanJump()

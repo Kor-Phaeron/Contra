@@ -15,10 +15,12 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private int verticalRayAmount = 4;
     [SerializeField] private int horizontalRayAmaount = 4;
 
+    #region Properties
     public bool FacingRight { get; set; }
     public float Gravity => gravity;
     public PlayerConditions Conditions => _playerConditions;
     public Vector2 Force => _force;
+    #endregion
 
 
     #region Internal
@@ -69,6 +71,7 @@ public class PlayerController : MonoBehaviour
             CollisionHorizontal(-1);
         }
         CollisionBelow();
+        CollisionAbove();
         
 
         transform.Translate(_movePosition, Space.Self);
@@ -133,7 +136,7 @@ public class PlayerController : MonoBehaviour
 
                 else 
                 {
-                    _movePosition.y = -hit.distance + _boundsHeight / 2f + skin;
+                    _movePosition.y = -hit.distance + _boundsHeight / 2f + skin + 1.1f;
                 }
 
                 _playerConditions.isCollidingBelow = true;
@@ -149,6 +152,43 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
+    #endregion
+
+    #region Collision Above
+
+    private void CollisionAbove()
+    {
+        if (_movePosition.y < 0)
+        {
+            return;
+        }
+        // Set ray lenght
+        float rayLenght = _movePosition.y + _boundsHeight / 2f;
+
+        // Origin points
+        Vector2 rayTopLeft = (_boundsBottomLeft + _boundsTopLeft) / 2f;
+        Vector2 rayTopRight = (_boundsBottomRight + _boundsTopRight) / 2f;
+        rayTopLeft += (Vector2) transform.right * _movePosition.x;
+        rayTopRight += (Vector2)transform.right * _movePosition.x;
+
+        for (int i = 0; i < verticalRayAmount; i++)
+        {
+            Vector2 rayOrigin = Vector2.Lerp(rayTopLeft, rayTopRight, (float)i / (float)(verticalRayAmount - 1));
+            RaycastHit2D hit = Physics2D.Raycast(rayOrigin, transform.up, rayLenght, collideWith);
+            Debug.DrawRay(rayOrigin, transform.up * rayLenght, Color.red);
+
+            if (hit)
+            {
+                _movePosition.y = hit.distance - _boundsHeight / 2f;
+                _playerConditions.isCollidingAbove = true;
+            }
+            else
+            {
+                _playerConditions.isCollidingAbove = false;
+            }
+        }
+    }
+
     #endregion
 
     #region Collision horizontal
