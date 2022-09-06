@@ -136,7 +136,7 @@ public class PlayerController : MonoBehaviour
 
                 else 
                 {
-                    _movePosition.y = -hit.distance + _boundsHeight / 2f + skin + 1.1f;
+                    _movePosition.y = -hit.distance + _boundsHeight / 2f + skin;
                 }
 
                 _playerConditions.isCollidingBelow = true;

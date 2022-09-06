@@ -62,8 +62,8 @@ public class PlayerJumpState : PlayerStates
         _playerController.Conditions.isJumping = true;
         _jumpingColliderSize = _currentColliderSize;
         //_currentColliderSize = new Vector2(1.26f, 1.06f);
-        _playerController.GetComponent<BoxCollider2D>().size = new Vector2(1.26f, 1.06f);
-        Debug.Log("X collider size: " + _currentColliderSize.x + "Y collider size: " + _currentColliderSize.y);
+        //_playerController.GetComponent<BoxCollider2D>().size = new Vector2(1.26f, 1.06f);
+        Debug.Log("X collider size: " + _currentColliderSize.x + " Y collider size: " + _currentColliderSize.y);
 
 
     }
