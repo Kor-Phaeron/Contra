@@ -1733,7 +1733,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ContraSheet8_77
+      name: Gun_Projectile
       rect:
         serializedVersion: 2
         x: 247
@@ -3030,12 +3030,11 @@ TextureImporter:
       ContraSheet8_26: 429015774
       ContraSheet8_70: -795836390
       ContraSheet8_24: 795533783
-      ContraSheet8_77: 276440325
+      ContraSheet8_101: -1355146374
       ContraSheet8_84: 951770943
       ContraSheet8_58: 2110697640
       ContraSheet8_95: -1558217486
       ContraSheet8_128: 321805404
-      ContraSheet8_101: -1355146374
       ContraSheet8_72: -1802155644
       ContraSheet8_18: -170012395
       ContraSheet8_54: -607124435
@@ -3045,6 +3044,7 @@ TextureImporter:
       ContraSheet8_85: 2010311670
       Powerup__B: 2019526491
       ContraSheet8_119: -1937777787
+      Gun_Projectile: 276440325
       ContraSheet8_125: 980318233
       ContraSheet8_115: 144982971
       ContraSheet8_20: -1692503575
