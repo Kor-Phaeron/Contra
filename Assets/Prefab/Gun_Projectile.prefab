@@ -131,3 +131,4 @@ MonoBehaviour:
   collideWith:
     serializedVersion: 2
     m_Bits: 128
+  projectileSkin: 0.01

@@ -8,7 +8,7 @@ public class Gun : MonoBehaviour
     [SerializeField] private GunProjectile projectilePrefab;
     [SerializeField] private Transform shotPoint;
 
-    [Header("Gunt Settings")]
+    [Header("Gun Settings")]
     [SerializeField] private float msBetweenShots = 1000f;
 
     public PlayerController PlayerController { get; set; }
@@ -30,13 +30,16 @@ public class Gun : MonoBehaviour
 
     private void FireProjectle()
     {
+        // Get Object from pool
         GameObject newProjectile = _pooler.GetObjectFromPool();
         newProjectile.transform.position = shotPoint.position;
         newProjectile.SetActive(true);
 
+        // Get projectile
         GunProjectile projectile = newProjectile.GetComponent<GunProjectile>();
         projectile.GunToShoot = this;
         projectile.SetDirection(PlayerController.FacingRight ? Vector3.right : Vector3.left);
+        projectile.EnableProjectile();
     }
 
     public void Shoot()
