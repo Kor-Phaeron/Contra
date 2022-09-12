@@ -1733,7 +1733,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Gun_Projectile
+      name: Gun_Projectile_PowerUp
       rect:
         serializedVersion: 2
         x: 247
@@ -1754,13 +1754,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ContraSheet8_78
+      name: Gun_Projectile
       rect:
         serializedVersion: 2
         x: 255
         y: 246
-        width: 9
-        height: 18
+        width: 3
+        height: 3
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2908,6 +2908,48 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: ContraSheet8_11
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 258
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 894fb4c5b9f8ef746bb6e48d2137f782
+      internalID: -278618705
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ContraSheet8_12
+      rect:
+        serializedVersion: 2
+        x: 261
+        y: 246
+        width: 3
+        height: 3
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bed0fc2b18948df4bb352a39dfb54334
+      internalID: 928045492
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -2933,7 +2975,6 @@ TextureImporter:
       ContraSheet8_1: 1537038072
       ContraSheet8_65: -354645658
       Powerup_M: 1957046246
-      ContraSheet8_78: 1547201149
       ContraSheet8_9: 969080363
       ContraSheet8_59: 2104094832
       ContraSheet8_33: 1765286779
@@ -2966,6 +3007,7 @@ TextureImporter:
       ContraSheet8_123: -1824674541
       ContraSheet8_31: 680299857
       ContraSheet8_131: -1349819920
+      ContraSheet8_12: 928045492
       ContraSheet8_86: 1967946122
       ContraSheet8_4: 1682220941
       ContraSheet8_121: 1922872940
@@ -3001,6 +3043,7 @@ TextureImporter:
       ContraSheet8_98: -611581926
       Powerup__F: -1378228236
       ContraSheet8_49: 1094514658
+      ContraSheet8_11: -278618705
       ContraSheet8_44: -1995445284
       ContraSheet8_19: -1410212826
       ContraSheet8_89: -1522822632
@@ -3044,13 +3087,14 @@ TextureImporter:
       ContraSheet8_85: 2010311670
       Powerup__B: 2019526491
       ContraSheet8_119: -1937777787
-      Gun_Projectile: 276440325
+      Gun_Projectile: 1547201149
       ContraSheet8_125: 980318233
       ContraSheet8_115: 144982971
       ContraSheet8_20: -1692503575
       ContraSheet8_71: 421870108
       ContraSheet8_111: 2010733525
       ContraSheet8_105: -996785425
+      Gun_Projectile_PowerUp: 276440325
       ContraSheet8_63: -1861674377
   spritePackingTag: 
   pSDRemoveMatte: 0
