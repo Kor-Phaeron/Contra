@@ -12,7 +12,7 @@ TagManager:
   - Water
   - UI
   - Map
-  - 
+  - Enemy
   - 
   - 
   - 
@@ -58,4 +58,7 @@ TagManager:
     locked: 0
   - name: Gun
     uniqueID: 2517134531
+    locked: 0
+  - name: Enemy
+    uniqueID: 1287061241
     locked: 0

@@ -8,17 +8,17 @@ public class GunProjectile : MonoBehaviour
     [SerializeField] private float speed = 30f;
 
     public Gun GunToShoot { get; set; }
-
+    public Vector3 ShootDirection => _shootDirection;
+    public float Speed => speed;
     private Vector3 _shootDirection;
 
-    private void Start()
-    {
-        _shootDirection = GunToShoot.PlayerController.FacingRight ? Vector3.right : Vector3.left;
-    }
-
-    // Update is called once per frame
     void Update()
     {
         transform.Translate(_shootDirection * speed * Time.deltaTime);
+    }
+
+    public void SetDirection(Vector3 newDirection)
+    {
+        _shootDirection = newDirection;
     }
 }

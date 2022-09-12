@@ -36,6 +36,7 @@ public class Gun : MonoBehaviour
 
         GunProjectile projectile = newProjectile.GetComponent<GunProjectile>();
         projectile.GunToShoot = this;
+        projectile.SetDirection(PlayerController.FacingRight ? Vector3.right : Vector3.left);
     }
 
     public void Shoot()
