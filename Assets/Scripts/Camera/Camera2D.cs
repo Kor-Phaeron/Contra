@@ -5,9 +5,10 @@ using UnityEngine;
 public class Camera2D : MonoBehaviour
 {
     [Header("Settings")]
-    [SerializeField] private PlayerMotor _playerToFollow;
-    [SerializeField] private bool horizontalFollow;
-    [SerializeField] private bool verticalFollow;
+    [SerializeField] private PlayerMotor playerToFollow;
+    [SerializeField] private bool horizontalFollow = true;
+    [SerializeField] private bool verticalFollow = true;
+    [SerializeField] private float gizmosOffsetZ = 0f;
 
     [Header("Horizontal")]
     [SerializeField][Range(0, 1)] private float horizontalInfluence = 1f;
@@ -19,12 +20,49 @@ public class Camera2D : MonoBehaviour
     [SerializeField] private float verticalOffset = 0f;
     [SerializeField] private float verticalSmoothness = 3f;
 
+    public Vector3 TargetPosition { get; set; }
+    public Vector3 CameraTargetPosition { get; set; }
+
+    private float _targetHorizontalSmoothFollow;
+    private float _targetVerticalSmoothFollow;
+
+    private void Awake()
+    {
+        CenterOnTarget(playerToFollow);
+    }
+
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.U))
-        {
-            CenterOnTarget(_playerToFollow);
-        }
+        MoveCamera();
+    }
+
+    private void MoveCamera()
+    {
+        // Calculate position
+        TargetPosition = GetTargetPosition(playerToFollow);
+        CameraTargetPosition = new Vector3(TargetPosition.x, TargetPosition.y, 0f);
+
+        // Follow on selected axis
+        float xPos = horizontalFollow ? CameraTargetPosition.x : transform.localPosition.x;
+        float yPos = verticalFollow ? CameraTargetPosition.y : transform.localPosition.y;
+
+        // Set offset
+        CameraTargetPosition += new Vector3(horizontalFollow ? horizontalOffset : 0f, verticalFollow ? verticalOffset : 0f, 0f);
+
+        // Set smooth value
+        _targetHorizontalSmoothFollow = Mathf.Lerp(_targetHorizontalSmoothFollow, CameraTargetPosition.x, horizontalSmoothness * Time.deltaTime);
+        _targetVerticalSmoothFollow = Mathf.Lerp(_targetVerticalSmoothFollow, CameraTargetPosition.y, verticalSmoothness * Time.deltaTime);
+
+        // Get direction towards target position
+        float xDirection = _targetHorizontalSmoothFollow - transform.localPosition.x;
+        float yDirection = _targetVerticalSmoothFollow - transform.localPosition.y;
+        Vector3 deltaDirection = new Vector3(xDirection, yDirection, 0f);
+
+        // New position
+        Vector3 newCameraPosition = transform.localPosition + deltaDirection;
+
+        // Apply new position
+        transform.localPosition = new Vector3(newCameraPosition.x, newCameraPosition.y, transform.localPosition.z);
     }
 
     private Vector3 GetTargetPosition(PlayerMotor player)
@@ -33,7 +71,8 @@ public class Camera2D : MonoBehaviour
         float yPos = 0f;
 
         xPos += (player.transform.position.x + horizontalOffset) * horizontalInfluence;
-        yPos += (player.transform.position.y + verticalOffset) * verticalInfluence;
+        //yPos += (player.transform.position.y + verticalOffset) * verticalInfluence;
+        yPos += (0.65f + verticalOffset) * verticalInfluence;
 
         Vector3 positionTarget = new Vector3(xPos, yPos, transform.position.z);
 
@@ -43,6 +82,15 @@ public class Camera2D : MonoBehaviour
     private void CenterOnTarget(PlayerMotor player)
     {
         Vector3 targetPosition = GetTargetPosition(player);
+        _targetHorizontalSmoothFollow = targetPosition.x;
+        _targetVerticalSmoothFollow = targetPosition.y;
         transform.localPosition = targetPosition;
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.magenta;
+        Vector3 camPosition = new Vector3(transform.localPosition.x, transform.localPosition.y, transform.localPosition.z + gizmosOffsetZ);
+        Gizmos.DrawWireSphere(camPosition, 0.5f);
     }
 }
