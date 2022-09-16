@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AIState : MonoBehaviour
+[CreateAssetMenu(menuName = "AI/State")]
+public class AIState : ScriptableObject
 {
     public AIAction[] Actions;
     public AITransition[] Transitions;
