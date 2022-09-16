@@ -141,7 +141,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!50 &94489713
 Rigidbody2D:
   serializedVersion: 4
@@ -270,6 +270,7 @@ GameObject:
   - component: {fileID: 263440996}
   - component: {fileID: 263440995}
   - component: {fileID: 263440997}
+  - component: {fileID: 263440998}
   m_Layer: 0
   m_Name: Enemy_Runner_02
   m_TagString: Untagged
@@ -425,6 +426,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentState: {fileID: 11400000, guid: b10b8d1c55c418d49b2a361dfe32ea2f, type: 2}
   remainState: {fileID: 11400000, guid: ff47fca5b1152164bb8f74b5c86450c1, type: 2}
+  rb: {fileID: 0}
+--- !u!114 &263440998
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 263440991}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e64952bb2f7e05a4f8c91e8dcb33d457, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 263440995}
 --- !u!1 &363127391
 GameObject:
   m_ObjectHideFlags: 0
@@ -1036,7 +1051,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!50 &1038324836
 Rigidbody2D:
   serializedVersion: 4
