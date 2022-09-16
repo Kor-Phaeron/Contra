@@ -1,9 +1,12 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class LevelManager : MonoBehaviour
 {
+    public static Action<PlayerMotor> OnPlayerSpawn;
+
     [Header("Settings")]
     [SerializeField] private Transform levelStartPoint;
     [SerializeField] private GameObject playerPrefab;
@@ -26,6 +29,9 @@ public class LevelManager : MonoBehaviour
     private void SpawnPlayer(GameObject player)
     {
         _currentPlayer = Instantiate(player, levelStartPoint.position, Quaternion.identity).GetComponent<PlayerMotor>();
+
+        // Call event
+        OnPlayerSpawn?.Invoke(_currentPlayer);
     }
 
 
@@ -37,6 +43,7 @@ public class LevelManager : MonoBehaviour
             _currentPlayer.SpawnPlayer(levelStartPoint);
             _currentPlayer.GetComponent<Health>().ResetLifes();
             _currentPlayer.gameObject.GetComponent<Animator>().SetBool("Double Jump", true);
+            _currentPlayer.GetComponent<Health>().Revive();
         }
     }
 
