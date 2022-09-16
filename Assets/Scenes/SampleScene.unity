@@ -728,7 +728,6 @@ GameObject:
   - component: {fileID: 925237253}
   - component: {fileID: 925237252}
   - component: {fileID: 925237251}
-  - component: {fileID: 925237255}
   m_Layer: 6
   m_Name: NES - Contra - Level 1
   m_TagString: Untagged
@@ -850,19 +849,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &925237255
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 925237250}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8108c2e2f5ab4c04086e6b06169a789c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerController: {fileID: 0}
 --- !u!1 &1038324835
 GameObject:
   m_ObjectHideFlags: 0
