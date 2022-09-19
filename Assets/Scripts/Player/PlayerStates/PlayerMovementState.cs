@@ -42,8 +42,11 @@ public class PlayerMovementState : PlayerStates
     public override void SetAnimation()
     {
         _animator.SetBool(_idleAnimatorParameter, _horizontalMovement == 0 
-                            && _playerController.Conditions.isCollidingBelow);
+                            && _playerController.Conditions.isCollidingBelow
+                            && !_playerController.Conditions.isShooting);
         _animator.SetBool(_runAnimatorParameter, Mathf.Abs(_horizontalInput) > 0.1f 
-                            && _playerController.Conditions.isCollidingBelow);
+                            && _playerController.Conditions.isCollidingBelow
+                            && !Input.GetMouseButton(0)
+                            && !_playerController.Conditions.isShooting);
     }
 }

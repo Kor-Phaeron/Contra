@@ -8,6 +8,7 @@ public class PlayerConditions
     public bool isFalling { get; set; }
     public bool isJumping { get; set; }
     public bool isCollidingAbove { get; set; }
+    public bool isShooting { get; set; }
     public void ResetConditions()
     {
         isCollidingBelow = false;

@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 79016809625422199}
   - component: {fileID: 79016809625422197}
   - component: {fileID: 79016809625422091}
+  - component: {fileID: 84134124356886322}
   - component: {fileID: 79016809625422088}
   - component: {fileID: 5668785534106239010}
   - component: {fileID: 4450320713583446637}
@@ -200,6 +201,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jumpHeight: 3
   maxJumps: 1
+--- !u!114 &84134124356886322
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 79016809625422194}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56c734af66a6f024989e5c13d78bd39b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &79016809625422088
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -227,7 +240,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 1881980570498398255, guid: 6c2f02b9b358a2548be5a80cd5383c65, type: 3}
   shotPoint: {fileID: 8243607260042945758}
-  msBetweenShots: 150
+  msBetweenShots: 500
 --- !u!114 &4450320713583446637
 MonoBehaviour:
   m_ObjectHideFlags: 0

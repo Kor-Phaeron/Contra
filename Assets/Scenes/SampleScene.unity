@@ -426,7 +426,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentState: {fileID: 11400000, guid: b10b8d1c55c418d49b2a361dfe32ea2f, type: 2}
   remainState: {fileID: 11400000, guid: ff47fca5b1152164bb8f74b5c86450c1, type: 2}
-  rb: {fileID: 0}
+  rb: {fileID: 263440995}
 --- !u!114 &263440998
 MonoBehaviour:
   m_ObjectHideFlags: 0

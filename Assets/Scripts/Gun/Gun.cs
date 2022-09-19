@@ -22,9 +22,13 @@ public class Gun : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButton(0))
         {
             Shoot();
+        }
+        else
+        {
+            PlayerController.Conditions.isShooting = false;
         }
     }
 
@@ -48,6 +52,7 @@ public class Gun : MonoBehaviour
         {
             _nextShotTime = Time.time + msBetweenShots / 1000f;
             FireProjectle();
+            PlayerController.Conditions.isShooting = true;
         }
     }
 }
