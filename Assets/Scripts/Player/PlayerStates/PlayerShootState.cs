@@ -9,7 +9,7 @@ public class PlayerShootState : PlayerStates
 
     public override void SetAnimation()
     {
-        _animator.SetBool(_shootAndRunForwardAnimatorParamter, Input.GetMouseButton(0)
+        _animator.SetBool(_shootAndRunForwardAnimatorParamter, _playerController.Conditions.isShooting
                             && Mathf.Abs(_horizontalInput) > 0.1f
                             );
     }
