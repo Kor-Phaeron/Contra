@@ -12,6 +12,7 @@ public class Gun : MonoBehaviour
     [SerializeField] private float msBetweenShots = 1000f;
 
     public PlayerController PlayerController { get; set; }
+    private PlayerStates _playerStates;
 
     private ObjectPooler _pooler;
     private float _nextShotTime;
@@ -19,6 +20,7 @@ public class Gun : MonoBehaviour
     {
         _pooler = GetComponent<ObjectPooler>();
         PlayerController = GetComponent<PlayerController>();
+        _playerStates = GetComponent<PlayerStates>();
     }
     private void Update()
     {
@@ -28,7 +30,8 @@ public class Gun : MonoBehaviour
         }
         else
         {
-            PlayerController.Conditions.isShooting = false;
+            PlayerController.Conditions.isShootingAndRunningForward = false;
+            PlayerController.Conditions.isShootingAndRunningUpward = false;
         }
     }
 
@@ -42,7 +45,20 @@ public class Gun : MonoBehaviour
         // Get projectile
         GunProjectile projectile = newProjectile.GetComponent<GunProjectile>();
         projectile.GunToShoot = this;
-        projectile.SetDirection(PlayerController.FacingRight ? Vector3.right : Vector3.left);
+
+        if (PlayerController.Conditions.isShootingAndRunningForward)
+        {
+            projectile.SetDirection(PlayerController.FacingRight ? Vector3.right : Vector3.left);
+        }
+        else if (PlayerController.Conditions.isShootingAndRunningUpward)
+        {
+            Debug.Log("Shooting upward");
+            projectile.SetDirection(PlayerController.FacingRight ? new Vector3(0.5f, 0.5f, 0) : new Vector3(-0.5f, 0.5f, 0));
+        }
+        else
+        {
+            projectile.SetDirection(PlayerController.FacingRight ? Vector3.right : Vector3.left);
+        }
         projectile.EnableProjectile();
     }
 
@@ -51,8 +67,25 @@ public class Gun : MonoBehaviour
         if (Time.time > _nextShotTime)
         {
             _nextShotTime = Time.time + msBetweenShots / 1000f;
+            if (_playerStates._horizontalInput == 0f && _playerStates._verticalInput == 0f)
+            {
+                PlayerController.Conditions.isShootingAndRunningForward = false;
+                PlayerController.Conditions.isShootingAndRunningUpward = false;
+            }
+            else if (Mathf.Abs(_playerStates._horizontalInput) > 0.1f
+                            && _playerStates._verticalInput == 0f)
+            {
+                PlayerController.Conditions.isShootingAndRunningUpward = false;
+                PlayerController.Conditions.isShootingAndRunningForward = true;
+            }
+            else if (Mathf.Abs(_playerStates._horizontalInput) > 0.1f
+                            && _playerStates._verticalInput > 0.1f)
+            {
+                PlayerController.Conditions.isShootingAndRunningForward = false;
+                PlayerController.Conditions.isShootingAndRunningUpward = true;
+            }
             FireProjectle();
-            PlayerController.Conditions.isShooting = true;
+            //PlayerController.Conditions.isShootingAndRunningForward = true;
         }
     }
 }

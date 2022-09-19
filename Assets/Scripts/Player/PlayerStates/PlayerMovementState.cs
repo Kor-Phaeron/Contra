@@ -8,6 +8,7 @@ public class PlayerMovementState : PlayerStates
     [SerializeField] private float speed = 10f;
 
     private float _horizontalMovement;
+    private float _verticalDirection;
     private float _movement;
     private int _idleAnimatorParameter = Animator.StringToHash("Idle");
     private int _runAnimatorParameter = Animator.StringToHash("Run");
@@ -37,15 +38,19 @@ public class PlayerMovementState : PlayerStates
     protected override void GetInput()
     {
         _horizontalMovement = _horizontalInput;
+        _verticalDirection = _verticalInput;
     }
 
     public override void SetAnimation()
     {
         _animator.SetBool(_idleAnimatorParameter, _horizontalMovement == 0 
-                            && _playerController.Conditions.isCollidingBelow);
+                            && _playerController.Conditions.isCollidingBelow
+                            && !_playerController.Conditions.isShootingAndRunningForward
+                            && !_playerController.Conditions.isShootingAndRunningUpward);
         _animator.SetBool(_runAnimatorParameter, Mathf.Abs(_horizontalInput) > 0.1f 
                             && _playerController.Conditions.isCollidingBelow
                             && !Input.GetMouseButton(0)
-                            && !_playerController.Conditions.isShooting);
+                            && !_playerController.Conditions.isShootingAndRunningForward
+                            && !_playerController.Conditions.isShootingAndRunningUpward);
     }
 }

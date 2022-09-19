@@ -6,8 +6,8 @@ public class PlayerStates : MonoBehaviour
 {
     protected PlayerController _playerController;
     protected Animator _animator;
-    protected float _horizontalInput;
-    protected float _verticalInput;
+    public float _horizontalInput;
+    public float _verticalInput;
 
     protected virtual void Start()
     {
