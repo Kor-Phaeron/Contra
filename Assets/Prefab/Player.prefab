@@ -186,6 +186,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f714caf4ec6e83449c9f7e15f265da0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _horizontalInput: 0
+  _verticalInput: 0
   speed: 6
 --- !u!114 &79016809625422091
 MonoBehaviour:
@@ -199,6 +201,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7dcbb4f8bec42054ead8b3003067f700, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _horizontalInput: 0
+  _verticalInput: 0
   jumpHeight: 3
   maxJumps: 1
 --- !u!114 &84134124356886322
@@ -213,6 +217,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56c734af66a6f024989e5c13d78bd39b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _horizontalInput: 0
+  _verticalInput: 0
 --- !u!114 &79016809625422088
 MonoBehaviour:
   m_ObjectHideFlags: 0

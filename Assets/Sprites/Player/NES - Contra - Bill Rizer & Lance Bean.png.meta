@@ -1733,15 +1733,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NES - Contra - Bill Rizer & Lance Bean_77
+      name: NES - Contra - Bill Rizer & Lance Bean_Shoot_and_run_downward_1
       rect:
         serializedVersion: 2
         x: 1
         y: 272
         width: 20
         height: 35
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1754,15 +1754,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NES - Contra - Bill Rizer & Lance Bean_78
+      name: NES - Contra - Bill Rizer & Lance Bean_Shoot_and_run_downward_2
       rect:
         serializedVersion: 2
         x: 22
         y: 272
         width: 21
         height: 35
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1775,15 +1775,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NES - Contra - Bill Rizer & Lance Bean_79
+      name: NES - Contra - Bill Rizer & Lance Bean_Shoot_and_run_downward_3
       rect:
         serializedVersion: 2
         x: 44
         y: 272
         width: 21
         height: 33
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -3177,18 +3177,20 @@ TextureImporter:
       NES - Contra - Bill Rizer & Lance Bean_104: 1164129199
       NES - Contra - Bill Rizer & Lance Bean_58: -252218211
       NES - Contra - Bill Rizer & Lance Bean_Jump_2: -44267279
+      NES - Contra - Bill Rizer & Lance Bean_Shoot_and_run_downward_2: -242915227
       NES - Contra - Bill Rizer & Lance Bean_26: 324159867
       NES - Contra - Bill Rizer & Lance Bean_Idle: -1952763703
       NES - Contra - Bill Rizer & Lance Bean_Shoot_and_run_3: -243208823
       NES - Contra - Bill Rizer & Lance Bean_96: 1552049944
       NES - Contra - Bill Rizer & Lance Bean_113: 2077271453
-      NES - Contra - Bill Rizer & Lance Bean_77: 1104253860
       NES - Contra - Bill Rizer & Lance Bean_14: -1676461393
       NES - Contra - Bill Rizer & Lance Bean_90: -1356744372
       NES - Contra - Bill Rizer & Lance Bean_62: 1726735679
       NES - Contra - Bill Rizer & Lance Bean_108: 1071411268
       NES - Contra - Bill Rizer & Lance Bean_115: 1445454397
+      NES - Contra - Bill Rizer & Lance Bean_Shoot_and_run_downward_3: 168909199
       NES - Contra - Bill Rizer & Lance Bean_107: -917878274
+      NES - Contra - Bill Rizer & Lance Bean_Shoot_and_run_downward_1: 1104253860
       NES - Contra - Bill Rizer & Lance Bean_60: 1902791963
       NES - Contra - Bill Rizer & Lance Bean_83: -1014862400
       NES - Contra - Bill Rizer & Lance Bean_84: 837340406
@@ -3226,7 +3228,6 @@ TextureImporter:
       NES - Contra - Bill Rizer & Lance Bean_120: 1642827272
       NES - Contra - Bill Rizer & Lance Bean_3: -1118582766
       NES - Contra - Bill Rizer & Lance Bean_116: 1236039050
-      NES - Contra - Bill Rizer & Lance Bean_79: 168909199
       NES - Contra - Bill Rizer & Lance Bean_110: 1129630996
       NES - Contra - Bill Rizer & Lance Bean_142: -358478294
       NES - Contra - Bill Rizer & Lance Bean_129: -1995691528
@@ -3255,7 +3256,6 @@ TextureImporter:
       NES - Contra - Bill Rizer & Lance Bean_94: -391007802
       NES - Contra - Bill Rizer & Lance Bean_Lives: 1828863881
       NES - Contra - Bill Rizer & Lance Bean_33: -248450324
-      NES - Contra - Bill Rizer & Lance Bean_78: -242915227
       NES - Contra - Bill Rizer & Lance Bean_92: -1597430964
       NES - Contra - Bill Rizer & Lance Bean_27: 559790527
       NES - Contra - Bill Rizer & Lance Bean_4: -120712631
