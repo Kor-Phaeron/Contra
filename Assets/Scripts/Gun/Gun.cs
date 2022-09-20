@@ -28,14 +28,6 @@ public class Gun : MonoBehaviour
         {
             Shoot();
         }
-        else
-        {
-            PlayerController.Conditions.isShootingAndRunningForward = false;
-            PlayerController.Conditions.isShootingAndRunningUpward = false;
-            PlayerController.Conditions.isShootingAndRunningDownward = false;
-            PlayerController.Conditions.isShootingUp = false;
-            PlayerController.Conditions.isShootingLying = false;
-        }
     }
 
     private void FireProjectle()
