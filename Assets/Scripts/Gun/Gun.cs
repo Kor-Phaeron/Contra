@@ -77,69 +77,49 @@ public class Gun : MonoBehaviour
         if (Time.time > _nextShotTime)
         {
             _nextShotTime = Time.time + msBetweenShots / 1000f;
-            if (_playerStates._horizontalInput == 0f 
-                && _playerStates._verticalInput == 0f
-                && !PlayerController.Conditions.isJumping)
-            {
-                PlayerController.Conditions.isShootingAndRunningForward = false;
-                PlayerController.Conditions.isShootingAndRunningUpward = false;
-                PlayerController.Conditions.isShootingAndRunningDownward = false;
-                PlayerController.Conditions.isShootingUp = false;
-                PlayerController.Conditions.isShootingLying = false;
-            }
-            else if (Mathf.Abs(_playerStates._horizontalInput) > 0.1f
+            PlayerController.Conditions.isShootingAndRunningForward = false;
+            PlayerController.Conditions.isShootingAndRunningUpward = false;
+            PlayerController.Conditions.isShootingAndRunningDownward = false;
+            PlayerController.Conditions.isShootingUp = false;
+            PlayerController.Conditions.isShootingLying = false;
+
+            if (Mathf.Abs(_playerStates._horizontalInput) > 0.1f
                             && _playerStates._verticalInput == 0f
                             && PlayerController.Conditions.isCollidingBelow
                             && !PlayerController.Conditions.isJumping)
             {
-                PlayerController.Conditions.isShootingAndRunningUpward = false;
-                PlayerController.Conditions.isShootingAndRunningDownward = false;
-                PlayerController.Conditions.isShootingUp = false;
-                PlayerController.Conditions.isShootingLying = false;
                 PlayerController.Conditions.isShootingAndRunningForward = true;
             }
+
             else if (Mathf.Abs(_playerStates._horizontalInput) > 0.1f
                             && _playerStates._verticalInput > 0.1f
                             && PlayerController.Conditions.isCollidingBelow
                             && !PlayerController.Conditions.isJumping)
             {
-                PlayerController.Conditions.isShootingAndRunningForward = false;
-                PlayerController.Conditions.isShootingAndRunningDownward = false;
-                PlayerController.Conditions.isShootingUp = false;
-                PlayerController.Conditions.isShootingLying = false;
                 PlayerController.Conditions.isShootingAndRunningUpward = true;
             }
+
             else if (Mathf.Abs(_playerStates._horizontalInput) > 0.1f
                             && _playerStates._verticalInput < -0.1f
                             && PlayerController.Conditions.isCollidingBelow
                             && !PlayerController.Conditions.isJumping)
             {
-                PlayerController.Conditions.isShootingAndRunningForward = false;
-                PlayerController.Conditions.isShootingAndRunningUpward = false;
-                PlayerController.Conditions.isShootingUp = false;
-                PlayerController.Conditions.isShootingLying = false;
                 PlayerController.Conditions.isShootingAndRunningDownward = true;
             }
+
             else if (_playerStates._horizontalInput == 0f
                             && _playerStates._verticalInput > 0.1f
                             && PlayerController.Conditions.isCollidingBelow
                             && !PlayerController.Conditions.isJumping)
             {
-                PlayerController.Conditions.isShootingAndRunningForward = false;
-                PlayerController.Conditions.isShootingAndRunningUpward = false;
-                PlayerController.Conditions.isShootingAndRunningDownward = false;
-                PlayerController.Conditions.isShootingLying = false;
                 PlayerController.Conditions.isShootingUp = true;
             }
+
             else if (_playerStates._horizontalInput == 0f
                             && _playerStates._verticalInput < -0.1f
                             && PlayerController.Conditions.isCollidingBelow
                             && !PlayerController.Conditions.isJumping)
             {
-                PlayerController.Conditions.isShootingAndRunningForward = false;
-                PlayerController.Conditions.isShootingAndRunningUpward = false;
-                PlayerController.Conditions.isShootingAndRunningDownward = false;
-                PlayerController.Conditions.isShootingUp = false;
                 PlayerController.Conditions.isShootingLying = true;
             }
 
