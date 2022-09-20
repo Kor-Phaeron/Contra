@@ -12,6 +12,8 @@ public class PlayerConditions
     public bool isShootingAndRunningForward { get; set; }
     public bool isShootingAndRunningUpward { get; set; }
     public bool isShootingAndRunningDownward { get; set; }
+    public bool isShootingUp { get; set; }
+    public bool isShootingLying { get; set; }
     public void ResetConditions()
     {
         isCollidingBelow = false;

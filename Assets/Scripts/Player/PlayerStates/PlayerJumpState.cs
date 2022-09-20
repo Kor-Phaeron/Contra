@@ -55,6 +55,9 @@ public class PlayerJumpState : PlayerStates
         _playerController.SetVerticalForce(jumpForce);
         _playerController.Conditions.isShootingAndRunningForward = false;
         _playerController.Conditions.isShootingAndRunningUpward = false;
+        _playerController.Conditions.isShootingAndRunningDownward = false;
+        _playerController.Conditions.isShootingUp = false;
+        _playerController.Conditions.isShootingLying = false;
         _playerController.Conditions.isJumping = true;
     }
 

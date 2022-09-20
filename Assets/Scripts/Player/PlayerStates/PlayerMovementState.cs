@@ -46,11 +46,17 @@ public class PlayerMovementState : PlayerStates
         _animator.SetBool(_idleAnimatorParameter, _horizontalMovement == 0 
                             && _playerController.Conditions.isCollidingBelow
                             && !_playerController.Conditions.isShootingAndRunningForward
-                            && !_playerController.Conditions.isShootingAndRunningUpward);
+                            && !_playerController.Conditions.isShootingAndRunningUpward
+                            && !_playerController.Conditions.isShootingAndRunningDownward
+                            && !_playerController.Conditions.isShootingUp
+                            && !_playerController.Conditions.isShootingLying);
         _animator.SetBool(_runAnimatorParameter, Mathf.Abs(_horizontalInput) > 0.1f 
                             && _playerController.Conditions.isCollidingBelow
                             && !Input.GetMouseButton(0)
                             && !_playerController.Conditions.isShootingAndRunningForward
-                            && !_playerController.Conditions.isShootingAndRunningUpward);
+                            && !_playerController.Conditions.isShootingAndRunningUpward
+                            && !_playerController.Conditions.isShootingAndRunningDownward
+                            && !_playerController.Conditions.isShootingUp
+                            && !_playerController.Conditions.isShootingLying);
     }
 }

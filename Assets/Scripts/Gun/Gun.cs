@@ -33,6 +33,8 @@ public class Gun : MonoBehaviour
             PlayerController.Conditions.isShootingAndRunningForward = false;
             PlayerController.Conditions.isShootingAndRunningUpward = false;
             PlayerController.Conditions.isShootingAndRunningDownward = false;
+            PlayerController.Conditions.isShootingUp = false;
+            PlayerController.Conditions.isShootingLying = false;
         }
     }
 
@@ -59,6 +61,10 @@ public class Gun : MonoBehaviour
         {
             projectile.SetDirection(PlayerController.FacingRight ? new Vector3(0.5f, -0.5f, 0) : new Vector3(-0.5f, -0.5f, 0));
         }
+        else if (PlayerController.Conditions.isShootingUp)
+        {
+            projectile.SetDirection(Vector3.up);
+        }
         else
         {
             projectile.SetDirection(PlayerController.FacingRight ? Vector3.right : Vector3.left);
@@ -78,6 +84,8 @@ public class Gun : MonoBehaviour
                 PlayerController.Conditions.isShootingAndRunningForward = false;
                 PlayerController.Conditions.isShootingAndRunningUpward = false;
                 PlayerController.Conditions.isShootingAndRunningDownward = false;
+                PlayerController.Conditions.isShootingUp = false;
+                PlayerController.Conditions.isShootingLying = false;
             }
             else if (Mathf.Abs(_playerStates._horizontalInput) > 0.1f
                             && _playerStates._verticalInput == 0f
@@ -86,6 +94,8 @@ public class Gun : MonoBehaviour
             {
                 PlayerController.Conditions.isShootingAndRunningUpward = false;
                 PlayerController.Conditions.isShootingAndRunningDownward = false;
+                PlayerController.Conditions.isShootingUp = false;
+                PlayerController.Conditions.isShootingLying = false;
                 PlayerController.Conditions.isShootingAndRunningForward = true;
             }
             else if (Mathf.Abs(_playerStates._horizontalInput) > 0.1f
@@ -95,6 +105,8 @@ public class Gun : MonoBehaviour
             {
                 PlayerController.Conditions.isShootingAndRunningForward = false;
                 PlayerController.Conditions.isShootingAndRunningDownward = false;
+                PlayerController.Conditions.isShootingUp = false;
+                PlayerController.Conditions.isShootingLying = false;
                 PlayerController.Conditions.isShootingAndRunningUpward = true;
             }
             else if (Mathf.Abs(_playerStates._horizontalInput) > 0.1f
@@ -104,8 +116,33 @@ public class Gun : MonoBehaviour
             {
                 PlayerController.Conditions.isShootingAndRunningForward = false;
                 PlayerController.Conditions.isShootingAndRunningUpward = false;
+                PlayerController.Conditions.isShootingUp = false;
+                PlayerController.Conditions.isShootingLying = false;
                 PlayerController.Conditions.isShootingAndRunningDownward = true;
             }
+            else if (_playerStates._horizontalInput == 0f
+                            && _playerStates._verticalInput > 0.1f
+                            && PlayerController.Conditions.isCollidingBelow
+                            && !PlayerController.Conditions.isJumping)
+            {
+                PlayerController.Conditions.isShootingAndRunningForward = false;
+                PlayerController.Conditions.isShootingAndRunningUpward = false;
+                PlayerController.Conditions.isShootingAndRunningDownward = false;
+                PlayerController.Conditions.isShootingLying = false;
+                PlayerController.Conditions.isShootingUp = true;
+            }
+            else if (_playerStates._horizontalInput == 0f
+                            && _playerStates._verticalInput < -0.1f
+                            && PlayerController.Conditions.isCollidingBelow
+                            && !PlayerController.Conditions.isJumping)
+            {
+                PlayerController.Conditions.isShootingAndRunningForward = false;
+                PlayerController.Conditions.isShootingAndRunningUpward = false;
+                PlayerController.Conditions.isShootingAndRunningDownward = false;
+                PlayerController.Conditions.isShootingUp = false;
+                PlayerController.Conditions.isShootingLying = true;
+            }
+
                 FireProjectle();
             //PlayerController.Conditions.isShootingAndRunningForward = true;
         }
