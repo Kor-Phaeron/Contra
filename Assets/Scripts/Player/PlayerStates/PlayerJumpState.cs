@@ -53,6 +53,8 @@ public class PlayerJumpState : PlayerStates
 
         float jumpForce = Mathf.Sqrt(jumpHeight * 2f * Mathf.Abs(_playerController.Gravity));
         _playerController.SetVerticalForce(jumpForce);
+        _playerController.Conditions.isShootingAndRunningForward = false;
+        _playerController.Conditions.isShootingAndRunningUpward = false;
         _playerController.Conditions.isJumping = true;
     }
 
@@ -78,13 +80,13 @@ public class PlayerJumpState : PlayerStates
         // Jump
         _animator.SetBool(_jumpAnimatorParameter, _playerController.Conditions.isJumping
                         && !_playerController.Conditions.isCollidingBelow
-                        && JumpsLeft >0
-                        && !_playerController.Conditions.isFalling);
-        // Double jump
-        _animator.SetBool(_animatorDoubleJumpParameter, _playerController.Conditions.isJumping
-                        && !_playerController.Conditions.isCollidingBelow
                         && JumpsLeft == 0
                         && !_playerController.Conditions.isFalling);
+        // Double jump
+/*        _animator.SetBool(_animatorDoubleJumpParameter, _playerController.Conditions.isJumping
+                        && !_playerController.Conditions.isCollidingBelow
+                        && JumpsLeft == 0
+                        && !_playerController.Conditions.isFalling);*/
         // Fall
         /*_animator.SetBool(_animatorFallParameter, _playerController.Conditions.isFalling
                         && _playerController.Conditions.isJumping
